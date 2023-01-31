@@ -18,5 +18,6 @@ export const theme = extendTheme({
         body: "gray.200",
       }),
     },
+    components: {},
   },
 });
