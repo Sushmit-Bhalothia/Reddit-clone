@@ -1,13 +1,13 @@
 import { atom } from "recoil";
-export interface authModalState {
+export interface AuthModalState {
   open: boolean;
   view: "login" | "signup" | "resetPassword";
 }
-const defaultModalState: authModalState = {
+const defaultModalState: AuthModalState = {
   open: false,
   view: "login",
 };
-export const authModalState = atom<authModalState>({
+export const authModalState = atom<AuthModalState>({
   key: "authModalState",
   default: defaultModalState,
 });
