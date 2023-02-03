@@ -39,13 +39,13 @@ const Authmodal: React.FC = () => {
             flexDirection="column"
             alignItems="center"
             justifyContent="center"
+            pb={6}
           >
             <Flex
               flexDirection="column"
               alignItems="center"
               justifyContent="center"
               width="70%"
-              border="1px solid red"
             >
               {/* <OAuthButtons/> */}
               <AuthInputs />
