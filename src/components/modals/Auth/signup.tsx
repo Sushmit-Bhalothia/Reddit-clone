@@ -1,18 +1,18 @@
 import { authModalState } from "@/Atoms/authmodal";
 import { Button, Flex, Input, Text } from "@chakra-ui/react";
-import React, { useState } from "react";
+import { useState } from "react";
 import { useSetRecoilState } from "recoil";
+type signupProps = {};
 
-type loginProps = {};
-
-const login: React.FC<loginProps> = () => {
+const signup: React.FC<signupProps> = () => {
   const setAuthModalState = useSetRecoilState(authModalState);
-  const [loginform, setloginform] = useState({
+  const [signupform, setsignupform] = useState({
     email: "",
     password: "",
+    confirmPassword: "",
   });
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setloginform((prev) => ({
+    setsignupform((prev) => ({
       ...prev,
       [event.target.name]: event.target.value,
     }));
@@ -64,11 +64,35 @@ const login: React.FC<loginProps> = () => {
         }}
         bg="gray.50"
       />
+
+      <Input
+        required
+        name="confirmPassword"
+        placeholder="confirm-password"
+        mb={2}
+        type="password"
+        onChange={onChange}
+        fontSize="10pt"
+        _placeholder={{ color: "gray.500" }}
+        _hover={{
+          border: "1px solid blue.500",
+          bg: "white",
+          borderColor: "blue.500",
+        }}
+        _focus={{
+          outline: "none",
+          border: "1px solid blue.500",
+          bg: "white",
+          borderColor: "blue.500",
+        }}
+        bg="gray.50"
+      />
+
       <Button type="submit" width="100%" height="36px" my={2}>
-        Log in
+        Sign Up
       </Button>
       <Flex fontSize="9pt" justifyContent="center">
-        <Text mr="1">New here ?</Text>
+        <Text mr="1">Already a redditor ?</Text>
         <Text
           color="blue.500"
           fontWeight="700"
@@ -76,14 +100,14 @@ const login: React.FC<loginProps> = () => {
           onClick={() => {
             setAuthModalState((prev) => ({
               ...prev,
-              view: "signup",
+              view: "login",
             }));
           }}
         >
-          Sign up
+          Log In
         </Text>
       </Flex>
     </form>
   );
 };
-export default login;
+export default signup;
