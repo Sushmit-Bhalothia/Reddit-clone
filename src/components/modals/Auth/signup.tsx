@@ -1,5 +1,5 @@
 import { authModalState } from "@/Atoms/authmodal";
-import { auth } from "@/pages/api/clientApp";
+import { auth } from "@/firebase/clientApp";
 import { Button, Flex, Input, Text } from "@chakra-ui/react";
 import { useState } from "react";
 import { useSetRecoilState } from "recoil";
